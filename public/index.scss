@@ -1,0 +1,167 @@
+$primary: #434C5E;
+$secondary: #ECEFF4;
+$borders: #3B4252;
+$shadow: #5E81AC;
+$red: #BF616A; 
+
+* {
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+body {
+    background-color: $secondary;
+}  
+//July  
+.container {
+    display: grid;
+    position: relative;
+    grid-template-rows: repeat(5, 150px);
+    grid-template-columns: repeat(7, 1fr);  
+    .date {
+        background-color: $primary;
+        color: #D8DEE9;
+        border: .1px solid $borders;
+        font-size: 20px;
+        transition: all .3s;
+        text-shadow: 1px 1px 1px $shadow, 0 0 1em $shadow;
+        cursor: pointer;
+        &:hover {
+            transform: scale(1.05);
+            background-color: $shadow;
+        }
+        &:nth-child(6),
+        &:nth-child(7),
+        &:nth-child(13),
+        &:nth-child(14),
+        &:nth-child(20),
+        &:nth-child(21),
+        &:nth-child(27),
+        &:nth-child(28) {
+            text-shadow: 1px 1px 1px $red, 0 0 1em $red;
+        }
+        .current-day {
+            margin-top: 0;
+        }
+    }
+}
+//CalendarApp
+.calendar-wrapper {
+    padding: 10px;
+    .month {
+        text-align: center;
+        color: $primary;
+        .far {
+            margin: 0 3px 0 3px;
+        }
+        .arrow-btn {
+            background-color: transparent;
+            border: none;
+            transition: all, .3s;
+            cursor: pointer;
+            outline: 0;
+            &:hover {
+                .fas {
+                    color: $shadow;
+                }
+            }
+            .fas {
+                font-size: 35px;
+                color: $primary;
+                transition: all, .3s;
+            }
+        }
+        .first:hover {
+            transform: translateX(-5px);
+        }
+        .second:hover {
+            transform: translateX(5px);
+        }
+    }
+    .days {
+        display: flex;
+        justify-content: space-around;
+        border: .1px solid $borders;
+        border-bottom: none;
+        .day {
+            color: $primary;
+        }
+    }
+}
+//EventWindowManager
+@mixin inputsStyle {
+    padding: 5px;
+    border: none;
+    border-bottom: 1px solid $borders;
+    background-color: transparent;
+    color: $secondary;
+    outline: 0;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+.dialog-root {
+    width: 100%;
+    height: 100%;    
+}
+.dialog-wrapper {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .dialog {
+        padding: 10px;
+        background-color: $shadow;
+        width: 40%;
+        height: 45%;
+        overflow: auto;
+        .event-details {
+            margin-top: 30px;
+            label {
+                color: $primary;
+            }
+           .event-name {
+                @include inputsStyle; 
+                width: 100%;           
+                &::placeholder {
+                    color: $secondary;
+                    opacity: 0.3;
+                }
+            }
+            .date-choise {
+                @include inputsStyle;
+            }
+            .time-choise {
+                @include inputsStyle;
+                margin-left: 10px;
+            } 
+        }
+        .actions {
+            display: flex;
+            justify-content: center;
+            margin-top: 50px;
+            .btn {
+                padding: 10px;
+                border-radius: 5px;
+                background-color: transparent;
+                color: $secondary;
+                border: 1px solid $borders;
+                cursor: pointer;
+                transition: all, .3s;
+                outline: 0;
+                &:hover {
+                    background-color: $primary;
+                }
+            }
+            .save {
+                margin-right: 10px;
+                width: 63px;
+            }
+            .cancel {
+                margin-left: 10px;
+            }
+        }
+    }  
+}
