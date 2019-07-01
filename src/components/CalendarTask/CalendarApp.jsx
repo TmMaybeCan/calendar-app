@@ -24,11 +24,11 @@ export default class CalendarApp extends Component {
         return(
             <div className="calendar-wrapper">
                 <h1 className="month">
-                    <button title="Previous month"className="arrow-btn first"><i class="fas fa-chevron-left"></i></button>
+                    <button title="Previous month"className="arrow-btn first"><i className="fas fa-chevron-left"></i></button>
                     <i class="far fa-calendar-alt"></i>
                         July 2019
                     <i class="far fa-calendar-alt"></i>
-                    <button title="Next month" className="arrow-btn second"><i class="fas fa-chevron-right"></i></button> 
+                    <button title="Next month" className="arrow-btn second"><i className="fas fa-chevron-right"></i></button> 
                 </h1>
 
                 <div className="days">
